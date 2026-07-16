@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smaller Pieces — Shaken, Not Stirred</title>
+<style>
+:root {
+  --black:#050505;
+  --cream:#e8dfcd;
+  --gold:#a8792c;
+  --red:#7b1717;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#050505;color:var(--cream);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:30;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(232,223,205,.055),transparent 30%),
+    linear-gradient(180deg,rgba(255,255,255,.015),transparent 26%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 6px);
+}
+.return{
+  position:fixed;top:16px;left:16px;z-index:50;
+  color:rgba(232,223,205,.58);text-decoration:none;
+  font:700 9px/1 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;
+}
+.clock{
+  position:fixed;top:16px;right:18px;z-index:50;
+  color:var(--gold);font:700 11px/1 Arial,sans-serif;letter-spacing:.2em;
+}
+.hero{
+  min-height:100vh;display:grid;place-items:center;padding:100px 24px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(110deg,transparent 0 45%,rgba(232,223,205,.03) 45.2% 46%,transparent 46.4%),
+    linear-gradient(180deg,transparent 0 78%,rgba(255,255,255,.018) 100%);
+  animation:carLight 14s linear infinite;
+}
+@keyframes carLight{0%{transform:translateX(-45vw);opacity:0}20%{opacity:1}55%{transform:translateX(35vw);opacity:.7}100%{transform:translateX(85vw);opacity:0}}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:1100px}
+.kicker{color:var(--gold);font:700 10px/1 Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;margin-bottom:28px}
+h1{margin:0;font-size:clamp(72px,13vw,180px);line-height:.78;font-weight:400;letter-spacing:-.07em;text-transform:uppercase}
+.subtitle{margin-top:20px;font-size:clamp(22px,2.5vw,34px);font-style:italic;color:rgba(232,223,205,.62)}
+.enter{display:inline-block;margin-top:42px;padding:15px 18px;border:1px solid var(--gold);color:var(--cream);text-decoration:none;font:700 10px/1 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.story{position:relative}
+.thought{min-height:72vh;display:grid;place-items:center;padding:100px 24px;position:relative}
+.thought p{width:min(100%,820px);margin:0;font-size:clamp(23px,2.8vw,42px);line-height:1.42;opacity:.12;transform:translateY(60px);filter:blur(7px);transition:opacity .9s ease,transform 1s ease,filter .9s ease}
+.thought.visible p{opacity:1;transform:translateY(0);filter:blur(0)}
+.thought.short p{font-size:clamp(38px,6vw,88px);line-height:1;text-align:center}
+.accusation::before{
+  content:"CONTROLLING\A MANIPULATIVE\A SUFFOCATING";
+  white-space:pre;
+  position:absolute;inset:auto 0 12%;text-align:center;
+  color:rgba(123,23,23,.16);font:700 clamp(46px,9vw,132px)/.84 Arial,sans-serif;
+  letter-spacing:-.06em;pointer-events:none;
+}
+.accusation.visible::before{animation:accuse 1.6s ease both}
+@keyframes accuse{0%{opacity:0;transform:scale(1.2)}100%{opacity:1;transform:scale(1)}}
+.leaving::before{
+  content:"";position:absolute;right:0;top:12%;bottom:12%;width:0;
+  background:linear-gradient(90deg,rgba(232,223,205,.02),rgba(232,223,205,.16));
+  box-shadow:-20px 0 50px rgba(232,223,205,.05);
+  transition:width 1.4s ease;
+}
+.leaving.visible::before{width:18vw}
+.final{min-height:110vh}
+.final p{
+  font-size:clamp(46px,7.4vw,112px);line-height:.96;letter-spacing:-.05em;text-align:center;
+  max-width:1100px;
+}
+.final.visible p{animation:fracture 5s ease forwards}
+@keyframes fracture{
+  0%{letter-spacing:-.05em;word-spacing:0}
+  55%{letter-spacing:.01em;word-spacing:.08em}
+  100%{letter-spacing:.08em;word-spacing:.18em;opacity:.68}
+}
+.after{min-height:60vh;display:grid;place-items:center;text-align:center;padding:80px 24px}
+.after .time{font:400 clamp(84px,18vw,220px)/.8 Georgia,serif;letter-spacing:-.07em}
+.after .note{margin-top:24px;color:rgba(232,223,205,.46);font-size:18px}
+@media(max-width:700px){
+  .thought{min-height:64vh}
+  .leaving.visible::before{width:28vw}
+}
+</style>
+</head>
+<body>
+<a class="return" href="https://thebastardsaint.com/the-lost-chapter/the-monsters-i-keep-fed">← The Monsters I Keep Fed</a>
+<div class="clock" id="clock">4:17 AM</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">The Monsters I Keep Fed · 04</div>
+    <h1>Smaller<br>Pieces</h1>
+    <div class="subtitle">Shaken, Not Stirred</div>
+    <a class="enter" href="#story">Stay Awake</a>
+  </div>
+</section>
+
+<main class="story" id="story">
+  <section class="thought "><p>It&#x27;s 4:17 AM and I&#x27;m staring at the ceiling again. You&#x27;re breathing softly next to me, finally at peace. I wonder what you dream about. I wonder if I&#x27;m there.</p></section><section class="thought short"><p>Fuck, this hurts.</p></section><section class="thought "><p>I reached for you today. Not just with my hands. With everything. And I watched you flinch away like my love was acid. Like I was burning you with my need to be close.</p></section><section class="thought short"><p>I&#x27;m so tired of being your monster.</p></section><section class="thought accusation"><p>You called me controlling yesterday when I asked how your day was. Manipulative when I made dinner. Suffocating when I said I missed you. Every genuine feeling I have gets twisted into something ugly once it passes between us. My love becomes your proof that something must be wrong with me. Who could possibly love you, right?</p></section><section class="thought "><p>I see how you look in the mirror. The disgust. The judgment. The ruthless cataloging of every flaw. I&#x27;ve memorized the exact sound of your sigh when you decide, yet again, that you&#x27;re not enough. Not thin enough. Not smart enough. Not successful enough. Just... not enough.</p></section><section class="thought "><p>And then you look at me with that same disgust. Because what kind of fool would choose you? There must be something wrong with me. There must be an angle. There must be a lie.</p></section><section class="thought "><p>My friends think I&#x27;m an idiot.</p></section><section class="thought "><p>They&#x27;ve stopped asking about you.</p></section><section class="thought "><p>&quot;Just leave,&quot; they say, like it&#x27;s simple. Like you&#x27;re just some bad habit I need to break. They don&#x27;t understand that I&#x27;ve seen beneath the mask. I&#x27;ve caught glimpses of who you are when you forget to hate yourself for five fucking minutes. Those rare, beautiful moments when you actually let yourself believe you might be worthy of love.</p></section><section class="thought short"><p>God, those moments.</p></section><section class="thought short"><p>I live for them.</p></section><section class="thought "><p>Store them up like a squirrel preparing for winter.</p></section><section class="thought "><p>I know what this is doing to me. The weight I&#x27;ve lost. The friends who&#x27;ve drifted away. The constant knot in my stomach waiting for the next accusation, the next fight, the next door slammed in my face. I know I&#x27;m disappearing too.</p></section><section class="thought leaving"><p>Sometimes I think about leaving. Actually, that&#x27;s a lie. I think about it every day. Every single day. I rehearse the speech. Pack imaginary bags. Close the door behind me and drive until the pain in my chest subsides.</p></section><section class="thought "><p>But then night comes. And you&#x27;re there, vulnerable in sleep in a way you never allow yourself while conscious. And I think maybe tomorrow will be different. Maybe tomorrow you&#x27;ll believe me when I say you&#x27;re enough. You&#x27;ve always been enough.</p></section><section class="thought "><p>I don&#x27;t know how much longer I can do this. Love shouldn&#x27;t feel like drowning. But walking away feels like giving up on the one thing I still believe in – that underneath all this pain is someone fighting to believe they deserve to be loved.</p></section><section class="thought "><p>And so I stay. I stay and I bleed and I hope.</p></section><section class="thought short"><p>Pathetic? Probably.</p></section><section class="thought short"><p>Real? Absolutely.</p></section><section class="thought "><p>I’m too old for fairy tale. This is love with teeth and claws and endless, sleepless nights. This is choosing someone who can&#x27;t choose themselves. This is believing in someone who looks at their reflection and sees only failure.</p></section><section class="thought "><p>I don&#x27;t know how our story ends. But I know that at 4:17 AM, watching you sleep, I still choose you. For better or worse. Mostly worse, these days.</p></section><section class="thought "><p>And tomorrow, I&#x27;ll try again. And you&#x27;ll push me away.</p></section><section class="thought final"><p>And we&#x27;ll both pretend not to be breaking into smaller pieces each time.</p></section>
+</main>
+
+<section class="after" id="after">
+  <div>
+    <div class="time">4:18 AM</div>
+    <div class="note">Nothing else changes.</div>
+  </div>
+</section>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+},{threshold:.38});
+document.querySelectorAll('.thought').forEach(el=>observer.observe(el));
+
+const after=document.getElementById('after');
+const clock=document.getElementById('clock');
+const afterObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) clock.textContent='4:18 AM';
+  });
+},{threshold:.45});
+afterObserver.observe(after);
+</script>
+</body>
+</html>
